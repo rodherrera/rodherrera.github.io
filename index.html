@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rodrigo Herrera</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --accent: #005f73;
+      --muted: #666666;
+      --border: #e5e5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
+    }
+
+    .profile {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .profile img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    .profile h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.9rem;
+    }
+
+    .profile .subtitle {
+      margin: 0.15rem 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    nav {
+      margin-top: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      margin-right: 1rem;
+    }
+
+    main {
+      padding-top: 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2.2rem;
+    }
+
+    section h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin-top: 0.4rem;
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="profile">
+        <!-- You can save this image locally and change src to "avatar.jpg" if you prefer -->
+        <img src="https://static.wixstatic.com/media/085033_cd7f86a2b4e94c28949f218da510bc99~mv2.jpg/v1/crop/x_0%2Cy_358%2Cw_4000%2Ch_5283/fill/w_321%2Ch_424%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/Rodrigo%20Herrera%2C%20decano%20Facultad%20de%20Econom%C3%ADa%20y%20Negocios%20-%20DSC09961%20%281%29.jpg"
+             alt="Rodrigo Herrera">
+
+        <div>
+          <h1>Rodrigo Herrera</h1>
+          <p class="subtitle">
+            Associate Professor of Economics<br>
+            Faculty of Business and Economics, University of Talca, Chile
+          </p>
+          <p class="subtitle">
+            Research: financial econometrics, quantitative risk management,
+            extreme value theory
+          </p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#grants">Research Grants</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#cv">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am an Associate Professor of Economics at the Faculty of Business and
+        Economics of the University of Talca in Chile. My work concentrates on
+        financial econometrics, quantitative risk management, and extreme value
+        theory, with applications to energy markets, banking, and financial
+        stability.
+      </p>
+      <p>
+        My research has appeared in journals such as the
+        <em>Journal of Banking and Finance</em>,
+        <em>Journal of Applied Econometrics</em>,
+        <em>Energy Economics</em>,
+        <em>International Journal of Forecasting</em>, and several other
+        outlets in finance and econometrics. I have served as Dean of the
+        Faculty of Business and Economics and previously directed the Applied
+        Economics Research Center and the Master Program in Economics at the
+        University of Talca.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+
+      <h3>Selected Publications</h3>
+      <ul>
+        <li>
+          Bień-Barkowska, K. and Herrera, R. (2025).
+          <strong>When to be discrete: The importance of time formulation in the modeling
+          of extreme events in finance</strong>.
+          <em>International Journal of Forecasting</em>, accepted.
+        </li>
+        <li>
+          Fuentes, F., Herrera, R. and Clements, A. (2025).
+          <strong>Tail risk dynamics of banks with score driven extreme value models</strong>.
+          <em>Journal of Empirical Finance</em>, Vol. 81, 101593.
+        </li>
+        <li>
+          Herrera, R. and Candia, C. (2024).
+          <strong>An Empirical Review of Dynamic Extreme Value Models for Forecasting Value at
+          Risk, Expected Shortfall and Expectile</strong>.
+          <em>Journal of Empirical Finance</em>, Vol. 77, 101488.
+        </li>
+        <li>
+          Piña, M. and Herrera, R. (2024).
+          <strong>Risk modelling with option implied correlations and score driven dynamics</strong>.
+          <em>North American Journal of Economics and Finance</em>, Vol. 72, 102136.
+        </li>
+        <li>
+          Gaete, M. and Herrera, R. (2023).
+          <strong>Diversification benefits of commodities in portfolio allocation:
+          A dynamic factor copula approach</strong>.
+          <em>Journal of Commodity Markets</em>, Vol. 32, 100363.
+        </li>
+        <li>
+          Fuentes, F., Herrera, R. and Clements, A. (2023).
+          <strong>Forecasting extreme financial risk: A score driven approach</strong>.
+          <em>International Journal of Forecasting</em>, Vol. 39 (2), 720–735.
+        </li>
+        <li>
+          Herrera, R. and Hautsch, N. (2020).
+          <strong>Multivariate dynamic intensity peaks over threshold models</strong>.
+          <em>Journal of Applied Econometrics</em>, Vol. 35, 248–272.
+        </li>
+      </ul>
+
+      <h3>Working Papers and Work in Progress</h3>
+      <ul>
+        <li>
+          Herrera, R. and Clements, A.
+          <strong>Using realized moderate volatility for estimating HAR model coefficients</strong>.
+          Revise and resubmit in <em>Econometrics and Statistics</em>.
+        </li>
+        <li>
+          Bień-Barkowska, K., Kliber, A. and Herrera, R.
+          <strong>Can Uncertainty affect Extreme Events in the Oil Market? A MIDAS touch to
+          dynamic POT models</strong>. Revise and resubmit in
+          <em>Journal of Empirical Finance</em>.
+        </li>
+        <li>
+          Herrera, R., Candia, C. and Bień-Barkowska, K.
+          <strong>Hawkes POT factor models: Measuring tail risk in commodity markets</strong>.
+        </li>
+        <li>
+          Herrera, R., Candia, C. and Clements, A.
+          <strong>Assessing multivariate tail risk forecasting using a vector autoregressive
+          tail index model for extremes</strong>.
+        </li>
+        <li>
+          Herrera, R. and Clements, A.
+          <strong>Realized conditional intensity of extreme events from a high frequency
+          perspective</strong>.
+        </li>
+        <li>
+          Herrera, R. and Bień-Barkowska, K.
+          <strong>Dynamic binary models for extreme risk in financial markets</strong>.
+        </li>
+      </ul>
+    </section>
+
+    <section id="grants">
+      <h2>Research Grants</h2>
+      <h3>Competitive Research Grants (FONDECYT)</h3>
+      <ul>
+        <li>
+          FONDECYT Regular Nº 1210915 (2021–2024).<br>
+          <strong>Systemic tail risk: New directions for understanding high dimensional extreme
+          financial risk</strong>. Principal Investigator.
+        </li>
+        <li>
+          FONDECYT Regular Nº 1180672 (2018–2020).<br>
+          <strong>Modeling high dimensional and high frequency extreme events in financial
+          markets: Incorporating trading activity, liquidity measures, and news flow</strong>.
+          Principal Investigator.
+        </li>
+        <li>
+          FONDECYT Regular Nº 1150349 (2015–2017).<br>
+          <strong>Extreme financial risk: A multivariate conditional framework of extreme
+          events</strong>. Principal Investigator.
+        </li>
+        <li>
+          FONDECYT Initiation Nº 11110247 (2011–2013).<br>
+          <strong>Advanced extremal models for risk modeling under Basel II</strong>.
+          Principal Investigator.
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>
+        I teach undergraduate and graduate courses in econometrics, financial
+        econometrics, quantitative risk management, quantitative methods in
+        economics, time series analysis, and data science oriented topics.
+      </p>
+      <p>
+        At the postgraduate level my teaching includes Financial Econometrics,
+        Quantitative Methods and Data Science, Advanced Econometrics, Time
+        Series, Quantitative Finance, Quantitative Risk Management, and related
+        courses in statistics and econometrics.
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>Latest News</h2>
+      <ul>
+        <li>
+          <strong>July 2025</strong> – The paper
+          <em>When to be discrete: The importance of time formulation in the modeling of
+          extreme events in finance</em> (with K. Bień-Barkowska) is accepted in
+          <em>International Journal of Forecasting</em>.
+        </li>
+        <li>
+          <strong>March 2025</strong> – The paper
+          <em>Tail risk dynamics of banks with score driven extreme value models</em>
+          (with F. Fuentes and A. Clements) is accepted in
+          <em>Journal of Empirical Finance</em>.
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Faculty of Business and Economics<br>
+        University of Talca<br>
+        Avenida Lircay s/n, Talca, Chile
+      </p>
+      <p>
+        Phone: +56 71 2200308<br>
+        Email:
+        <a href="mailto:rodrigo.herrera@utalca.cl">rodrigo.herrera@utalca.cl</a><br>
+        Web: <a href="https://www.r-herrera.com/">www.r-herrera.com</a><br>
+        GitHub: <a href="https://github.com/rodrigo-sudo">github.com/rodrigo-sudo</a>
+      </p>
+    </section>
+
+    <section id="cv">
+      <h2>Curriculum Vitae</h2>
+      <p>
+        A full CV in PDF format is available here:
+        <a href="https://www.r-herrera.com/_files/ugd/085033_11a2b98d48e64bb19809043edd7a1779.pdf">
+          Download CV (PDF)
+        </a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Rodrigo Herrera · Last updated: August 2025
+  </footer>
+
+</body>
+</html>
