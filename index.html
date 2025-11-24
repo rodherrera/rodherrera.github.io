@@ -1,17 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Rodrigo Herrera</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rodrigo Herrera – Financial econometrics, extreme value theory, quantitative risk management." />
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #fdfdfd;
       --text: #222222;
-      --accent: #005f73;
-      --muted: #666666;
-      --border: #e5e5e5;
+      --muted: #555555;
+      --accent: #1a5fd0;
+      --border: #dddddd;
+      --card: #ffffff;
+    }
+
+    body[data-theme="dark"] {
+      --bg: #0f1115;
+      --text: #f4f4f4;
+      --muted: #b0b0b0;
+      --accent: #4da3ff;
+      --border: #333333;
+      --card: #171921;
     }
 
     * {
@@ -20,11 +30,56 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   sans-serif;
-      background: var(--bg);
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .title-block {
+      flex: 1 1 auto;
+    }
+
+    h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 0.3rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    p {
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
     }
 
     a {
@@ -32,365 +87,659 @@
       text-decoration: none;
     }
 
-    a:hover {
+    a:hover,
+    a:focus {
       text-decoration: underline;
     }
 
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 1rem 1.5rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1rem 3rem;
-    }
-
-    .profile {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .profile img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-    }
-
-    .profile h1 {
-      margin: 0 0 0.25rem;
-      font-size: 1.9rem;
-    }
-
-    .profile .subtitle {
-      margin: 0.15rem 0;
+    .tagline {
+      margin: 0.15rem 0 0.35rem;
+      font-size: 0.98rem;
       color: var(--muted);
-      font-size: 0.96rem;
     }
 
-    nav {
-      margin-top: 1.2rem;
+    .contact {
       font-size: 0.95rem;
+      color: var(--muted);
     }
 
-    nav a {
-      margin-right: 1rem;
+    .contact a {
+      color: var(--accent);
+    }
+
+    .icon-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background-color: transparent;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    .icon-link:hover,
+    .icon-link:focus {
+      background-color: rgba(0, 0, 0, 0.035);
+    }
+
+    body[data-theme="dark"] .icon-link:hover,
+    body[data-theme="dark"] .icon-link:focus {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .icon-link svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--muted);
+    }
+
+    #theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background-color: transparent;
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 0.35rem 0.75rem;
+      cursor: pointer;
+      margin-top: 0.25rem;
+      white-space: nowrap;
+    }
+
+    #theme-toggle:hover,
+    #theme-toggle:focus {
+      background-color: rgba(0, 0, 0, 0.035);
+    }
+
+    body[data-theme="dark"] #theme-toggle:hover,
+    body[data-theme="dark"] #theme-toggle:focus {
+      background-color: rgba(255, 255, 255, 0.06);
     }
 
     main {
-      padding-top: 1.5rem;
+      margin-top: 0.5rem;
     }
 
-    section {
-      margin-bottom: 2.2rem;
+    .section-text {
+      font-size: 0.97rem;
+      max-width: 70ch;
     }
 
-    section h2 {
-      margin: 0 0 0.75rem;
-      font-size: 1.3rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.3rem;
-    }
-
-    h3 {
-      margin-top: 1.2rem;
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-    }
-
-    ul {
+    ul.pub-list,
+    ol.pub-list {
       margin-top: 0.4rem;
-      padding-left: 1.2rem;
+      padding-left: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    ul.pub-list li,
+    ol.pub-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-title {
+      color: var(--accent);
+    }
+
+    .pub-meta {
+      color: var(--muted);
+    }
+
+    em {
+      font-style: italic;
     }
 
     footer {
+      margin-top: 3rem;
+      padding-top: 1.3rem;
       border-top: 1px solid var(--border);
-      padding: 1rem;
       font-size: 0.85rem;
       color: var(--muted);
       text-align: center;
     }
 
-    @media (max-width: 600px) {
-      .profile {
+    @media (max-width: 640px) {
+      header {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .profile img {
-        width: 120px;
-        height:120px;
+      #theme-toggle {
+        align-self: flex-start;
       }
     }
   </style>
+  <script>
+    (function () {
+      var storedTheme = window.localStorage ? localStorage.getItem("theme") : null;
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var initial = storedTheme || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", initial);
+      document.body && document.body.setAttribute("data-theme", initial);
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        document.body.setAttribute("data-theme", theme);
+        if (window.localStorage) {
+          localStorage.setItem("theme", theme);
+        }
+        var btn = document.getElementById("theme-toggle");
+        if (btn) {
+          btn.textContent = theme === "dark" ? "Light theme" : "Dark theme";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ensure body has the same theme as html on load
+        var current = document.documentElement.getAttribute("data-theme") || initial;
+        document.body.setAttribute("data-theme", current);
+        applyTheme(current);
+
+        var btn = document.getElementById("theme-toggle");
+        if (btn) {
+          btn.addEventListener("click", function () {
+            var now = document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            applyTheme(now);
+          });
+        }
+      });
+    })();
+  </script>
 </head>
 <body>
-
-  <header>
-    <div class="container">
-      <div class="profile">
-        <!-- You can save this image locally and change src to "avatar.jpg" if you prefer -->
-        <img src="Rodrigo Herrera.jpg"
-             alt="Rodrigo Herrera">
-
-        <div>
-          <h1>Rodrigo Herrera</h1>
-          <p class="subtitle">
-            Associate Professor of Economics<br>
-            Faculty of Business and Economics, University of Talca, Chile
-          </p>
-          <p class="subtitle">
-            Research: financial econometrics, quantitative risk management,
-            extreme value theory
-          </p>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <h1>Rodrigo&nbsp;Herrera</h1>
+        <p class="tagline">
+          Associate Professor of Economics, School of Business and Economics, Universidad de Talca, Chile
+        </p>
+        <p class="contact">
+          Quantitative risk management, financial econometrics, extreme value theory<br />
+          Email:
+          <a href="mailto:rodrigo.herrera@utalca.cl">rodrigo.herrera@utalca.cl</a>
+        </p>
+        <div class="icon-bar" aria-label="Profiles and contact links">
+          <!-- Google Scholar -->
+          <a class="icon-link"
+             href="https://scholar.google.cl/citations?hl=es&amp;user=DkCOk9EAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12l8-7v4h5a5 5 0 010 10h-1.5v-3H16a2 2 0 000-4h-5v4z" />
+            </svg>
+          </a>
+          <!-- ORCID -->
+          <a class="icon-link"
+             href="https://orcid.org/0000-0002-4604-0396"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="ORCID">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <rect x="10.8" y="7" width="1.8" height="10" />
+              <circle cx="11.7" cy="5.5" r="0.9" />
+            </svg>
+          </a>
+          <!-- Scopus -->
+          <a class="icon-link"
+             href="https://www.scopus.com/authid/detail.uri?authorId=37101733000"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Scopus">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9 9.5a2.5 2.5 0 012.7-2.5c1.4 0 2.3.8 2.3 2h-1.6c0-.4-.2-.7-.7-.7-.6 0-1 .4-1 1v1c0 .6.4 1 1 1 .5 0 .7-.3.7-.7h1.6c0 1.2-.9 2-2.3 2A2.5 2.5 0 019 11z" />
+            </svg>
+          </a>
+          <!-- ResearchGate -->
+          <a class="icon-link"
+             href="https://www.researchgate.net/profile/Rodrigo-Herrera-6"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="ResearchGate">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 4h6.5a4.5 4.5 0 010 9H9.8l3.6 7H11L7.5 13.5H7V20H5zM7 6v5h4.5a2.5 2.5 0 000-5z" />
+            </svg>
+          </a>
+          <!-- GitHub -->
+          <a class="icon-link"
+             href="https://github.com/rodrigo-sudo/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.7.6-3.3-1.2-3.3-1.2-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.8.1 1.3.9 1.3.9.7 1.3 2 1 2.4.8a1.8 1.8 0 01.5-1.1c-2.2-.2-4.5-1.1-4.5-4.9a3.8 3.8 0 011-2.6 3.5 3.5 0 01.1-2.6s.8-.2 2.7 1a9.3 9.3 0 014.9 0c1.9-1.2 2.7-1 2.7-1a3.5 3.5 0 01.1 2.6 3.8 3.8 0 011 2.6c0 3.8-2.3 4.7-4.5 4.9a2 2 0 01.6 1.5v2.2c0 .3.2.6.7.5A10 10 0 0012 2z" />
+            </svg>
+          </a>
+          <!-- Email -->
+          <a class="icon-link"
+             href="mailto:rodrigo.herrera@utalca.cl"
+             aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm0 2v.3l8 5 8-5V7l-8 5z" />
+            </svg>
+          </a>
         </div>
       </div>
+      <button id="theme-toggle" type="button" aria-label="Toggle color theme">
+        Dark theme
+      </button>
+    </header>
 
-      <nav>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#grants">Research Grants</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#cv">CV</a>
-      </nav>
-    </div>
-  </header>
+    <main>
+      <section>
+        <h2>About</h2>
+        <p class="section-text">
+          I am an Associate Professor of Economics at the School of Business and Economics,
+          Universidad de Talca, Chile. My research focuses on financial econometrics, quantitative
+          risk management, and extreme value theory, with applications to tail risk, systemic risk,
+          and high-frequency financial data.
+        </p>
+      </section>
 
-  <main class="container">
+      <section id="publications">
+        <h2>Publications</h2>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I am an Associate Professor of Economics at the Faculty of Business and
-        Economics of the University of Talca in Chile. My work concentrates on
-        financial econometrics, quantitative risk management, and extreme value
-        theory, with applications to energy markets, banking, and financial
-        stability.
-      </p>
-      <p>
-        My research has appeared in journals such as the
-        <em>Journal of Banking and Finance</em>,
-        <em>Journal of Applied Econometrics</em>,
-        <em>Energy Economics</em>,
-        <em>International Journal of Forecasting</em>, and several other
-        outlets in finance and econometrics. I have served as Dean of the
-        Faculty of Business and Economics and previously directed the Applied
-        Economics Research Center and the Master Program in Economics at the
-        University of Talca.
-      </p>
-    </section>
+        <h3>WoS and Scopus articles</h3>
+        <ol class="pub-list">
+          <li>
+            2025 &ndash; Bień-Barkowska, K. and Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=When+to+be+discrete%3A+The+importance+of+time+formulation+in+the+modeling+of+extreme+events+in+finance"
+               target="_blank"
+               rel="noopener noreferrer">
+              When to be discrete: The importance of time formulation in the modeling of extreme events in finance
+            </a>.
+            <span class="pub-meta">
+              International Journal of Forecasting, accepted.
+            </span>
+          </li>
 
- <section id="research">
-  <h2>Research</h2>
+          <li>
+            2025 &ndash; Fuentes, F., Herrera, R. and Clements, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Tail+risk+dynamics+of+banks+with+score-driven+extreme+value+models"
+               target="_blank"
+               rel="noopener noreferrer">
+              Tail risk dynamics of banks with score-driven extreme value models
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Empirical Finance</em>, 81, 101593.
+            </span>
+          </li>
 
-  <h3>Selected Publications</h3>
-  <ul>
+          <li>
+            2024 &ndash; Herrera, R. and Candia, C.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=An+Empirical+Review+of+Dynamic+Extreme+Value+Models+for+Forecasting+Value+at+Risk%2C+Expected+Shortfall+and+Expectile"
+               target="_blank"
+               rel="noopener noreferrer">
+              An empirical review of dynamic extreme value models for forecasting Value at Risk, Expected Shortfall and Expectile
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Empirical Finance</em>, 77, 101488.
+            </span>
+          </li>
 
-    <li>
-      Bień-Barkowska, K. & Herrera, R. (2025).
-      <strong>When to be discrete: The importance of time formulation in the modeling of extreme events in finance</strong>.
-      <em>International Journal of Forecasting</em>, accepted.
-      &middot;
-      <a href="https://doi.org/10.1016/j.ijforecast.2024.10.006" target="_blank">DOI</a>
-    </li>
+          <li>
+            2024 &ndash; Piña, M. and Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Risk+modelling+with+option-implied+correlations+and+score-driven+dynamics"
+               target="_blank"
+               rel="noopener noreferrer">
+              Risk modelling with option-implied correlations and score-driven dynamics
+            </a>.
+            <span class="pub-meta">
+              <em>North American Journal of Economics and Finance</em>, 72, 102136.
+            </span>
+          </li>
 
-    <li>
-      Fuentes, F., Herrera, R. & Clements, A. (2025).
-      <strong>Tail risk dynamics of banks with score-driven extreme value models</strong>.
-      <em>Journal of Empirical Finance</em>, 81, 101593.
-      &middot;
-      <a href="https://doi.org/10.1016/j.jempfin.2024.101593" target="_blank">DOI</a>
-    </li>
+          <li>
+            2023 &ndash; Gaete, M. and Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Diversification+benefits+of+commodities+in+portfolio+allocation%3A+A+dynamic+factor+copula+approach"
+               target="_blank"
+               rel="noopener noreferrer">
+              Diversification benefits of commodities in portfolio allocation: A dynamic factor copula approach
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Commodity Markets</em>, 32, 100363.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R. & Candia, C. (2024).
-      <strong>An Empirical Review of Dynamic Extreme Value Models for Forecasting Value at Risk, Expected Shortfall and Expectile</strong>.
-      <em>Journal of Empirical Finance</em>, 77, 101488.
-      &middot;
-      <a href="https://doi.org/10.1016/j.jempfin.2023.101488" target="_blank">DOI</a>
-    </li>
+          <li>
+            2023 &ndash; Fuentes, F., Herrera, R. and Clements, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Forecasting+extreme+financial+risk%3A+A+score-driven+approach"
+               target="_blank"
+               rel="noopener noreferrer">
+              Forecasting extreme financial risk: A score-driven approach
+            </a>.
+            <span class="pub-meta">
+              <em>International Journal of Forecasting</em>, 39(2), 720&ndash;735.
+            </span>
+          </li>
 
-    <li>
-      Piña, M. & Herrera, R. (2024).
-      <strong>Risk modelling with option-implied correlations and score-driven dynamics</strong>.
-      <em>North American Journal of Economics and Finance</em>, 72, 102136.
-      &middot;
-      <a href="https://doi.org/10.1016/j.najef.2022.102136" target="_blank">DOI</a>
-    </li>
+          <li>
+            2021 &ndash; Rodriguez, A., Pino, G. and Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=A+non-parametric+statistic+for+testing+conditional+heteroscedasticity+for+unobserved+component+models"
+               target="_blank"
+               rel="noopener noreferrer">
+              A non-parametric statistic for testing conditional heteroscedasticity for unobserved component models
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Applied Statistics</em>, 48(3), 471&ndash;497.
+            </span>
+          </li>
 
-    <li>
-      Gaete, M. & Herrera, R. (2023).
-      <strong>Diversification benefits of commodities in portfolio allocation: A dynamic factor copula approach</strong>.
-      <em>Journal of Commodity Markets</em>, 32, 100363.
-      &middot;
-      <a href="https://doi.org/10.1016/j.jcomm.2023.100363" target="_blank">DOI</a>
-    </li>
+          <li>
+            2020 &ndash; Clements, A., Herrera, R. and Hurn, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Network+analysis%3A+a+novel+approach+to+identify+PM2.5+hotspots+and+their+spatio-temporal+impact+on+air+quality+in+Santiago+de+Chile"
+               target="_blank"
+               rel="noopener noreferrer">
+              Network analysis: a novel approach to identify PM2.5 hotspots and their spatio-temporal impact on air quality in Santiago de Chile
+            </a>.
+            <span class="pub-meta">
+              <em>Air Quality, Atmosphere and Health</em>, 13, 1075&ndash;1082.
+            </span>
+          </li>
 
-    <li>
-      Fuentes, F., Herrera, R. & Clements, A. (2023).
-      <strong>Forecasting extreme financial risk: A score-driven approach</strong>.
-      <em>International Journal of Forecasting</em>, 39(2), 720–735.
-      &middot;
-      <a href="https://doi.org/10.1016/j.ijforecast.2022.05.010" target="_blank">DOI</a>
-    </li>
+          <li>
+            2020 &ndash; Fuentes, F. and Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Dynamics+of+Connectedness+in+Clean+Energy+Stock+Markets"
+               target="_blank"
+               rel="noopener noreferrer">
+              Dynamics of connectedness in clean energy stock markets
+            </a>.
+            <span class="pub-meta">
+              <em>Energies</em>, 13, 3705.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R. & Hautsch, N. (2020).
-      <strong>Multivariate dynamic intensity peaks-over-threshold models</strong>.
-      <em>Journal of Applied Econometrics</em>, 35, 248–272.
-      &middot;
-      <a href="https://doi.org/10.1002/jae.2739" target="_blank">DOI</a>
-    </li>
+          <li>
+            2020 &ndash; Hautsch, N. and Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Multivariate+dynamic+intensity+peaks-over-threshold+models"
+               target="_blank"
+               rel="noopener noreferrer">
+              Multivariate dynamic intensity peaks-over-threshold models
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Applied Econometrics</em>, 35(2), 248&ndash;272.
+            </span>
+          </li>
 
-  </ul>
+          <li>
+            2020 &ndash; Herrera, R. and Clements, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=A+marked+point+process+model+for+intraday+financial+returns%3A+Modelling+extreme+risk"
+               target="_blank"
+               rel="noopener noreferrer">
+              A marked point process model for intraday financial returns: Modelling extreme risk
+            </a>.
+            <span class="pub-meta">
+              <em>Empirical Economics</em>, 58, 1575&ndash;1601.
+            </span>
+          </li>
 
-  <h3>Working Papers & Work in Progress</h3>
-  <ul>
+          <li>
+            2019 &ndash; Pino, G., Herrera, R. and Rodriguez, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Geographical+spillovers+on+the+relation+between+risk-taking+and+market+power+in+the+US+banking+sector"
+               target="_blank"
+               rel="noopener noreferrer">
+              Geographical spillovers on the relation between risk-taking and market power in the US banking sector
+            </a>.
+            <span class="pub-meta">
+              <em>North American Journal of Economics and Finance</em>, 47, 351&ndash;364.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R. & Clements, A.
-      <strong>Using realized moderate volatility for estimating HAR model coefficients</strong>.
-      Revise & resubmit, <em>Econometrics & Statistics</em>.
-      &middot;
-      <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4248029" target="_blank">SSRN</a>
-    </li>
+          <li>
+            2018 &ndash; Herrera, R., Clements, A. and Fuentes, F.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Modeling+Extreme+Risks+in+Commodities+and+Commodity+Currencies"
+               target="_blank"
+               rel="noopener noreferrer">
+              Modeling extreme risks in commodities and commodity currencies
+            </a>.
+            <span class="pub-meta">
+              <em>Pacific-Basin Finance Journal</em>, 51, 108&ndash;120.
+            </span>
+          </li>
 
-    <li>
-      Bień-Barkowska, K., Kliber, A. & Herrera, R.
-      <strong>Can Uncertainty affect Extreme Events in the Oil Market? A MIDAS touch to dynamic POT models</strong>.
-      R&R, <em>Journal of Empirical Finance</em>.
-      &middot;
-      <a href="https://www.sciencedirect.com/science/article/abs/pii/S0927539823001527" target="_blank">Preview</a>
-    </li>
+          <li>
+            2018 &ndash; Moisan, S., Herrera, R. and Clements, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=A+Dynamic+Multiple+Equation+Approach+for+PM2.5+Forecasting+in+Santiago%2C+Chile"
+               target="_blank"
+               rel="noopener noreferrer">
+              A dynamic multiple equation approach for PM2.5 forecasting in Santiago, Chile
+            </a>.
+            <span class="pub-meta">
+              <em>International Journal of Forecasting</em>, 34, 566&ndash;581.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R., Candia, C. & Bień-Barkowska, K.
-      <strong>Hawkes POT factor models: Measuring tail risk in commodity markets</strong>.
-      &middot;
-      <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4723397" target="_blank">SSRN</a>
-    </li>
+          <li>
+            2018 &ndash; Herrera, R. and González, S.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Mutual+excitation+between+OECD+stock+and+oil+markets%3A+A+conditional+intensity+extreme+value+approach"
+               target="_blank"
+               rel="noopener noreferrer">
+              Mutual excitation between OECD stock and oil markets: A conditional intensity extreme value approach
+            </a>.
+            <span class="pub-meta">
+              <em>North American Journal of Economics and Finance</em>, 46, 70&ndash;88.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R., Candia, C. & Clements, A.
-      <strong>Assessing multivariate tail risk forecasting using a vector autoregressive tail index model for extremes</strong>.
-      &middot;
-      <a href="#" onclick="return false;">(working paper, link to be added)</a>
-    </li>
+          <li>
+            2018 &ndash; Herrera, R. and Clements, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Point+process+models+for+extreme+returns%3A+Harnessing+implied+volatility"
+               target="_blank"
+               rel="noopener noreferrer">
+              Point process models for extreme returns: Harnessing implied volatility
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Banking and Finance</em>, 88, 161&ndash;175.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R. & Clements, A.
-      <strong>Realized conditional intensity of extreme events from a high-frequency perspective</strong>.
-      &middot;
-      <a href="#" onclick="return false;">(working paper, link to be added)</a>
-    </li>
+          <li>
+            2018 &ndash; Herrera, R. and Fuentes, F.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Are+Crude+Oil+and+Natural+Gas+extreme+prices+interdependent%3F"
+               target="_blank"
+               rel="noopener noreferrer">
+              Are crude oil and natural gas extreme prices interdependent?
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Physics: Conference Series</em>, 1053, 012112.
+            </span>
+          </li>
 
-    <li>
-      Herrera, R. & Bień-Barkowska, K.
-      <strong>Dynamic binary models for extreme risk in financial markets</strong>.
-      &middot;
-      <a href="#" onclick="return false;">(working paper, link to be added)</a>
-    </li>
+          <li>
+            2017 &ndash; Herrera, R., Rodriguez, A. and Pino, G.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Modeling+and+forecasting+extreme+commodity+prices%3A+A+Markov-Switching+based+extreme+value+model"
+               target="_blank"
+               rel="noopener noreferrer">
+              Modeling and forecasting extreme commodity prices: A Markov-Switching based extreme value model
+            </a>.
+            <span class="pub-meta">
+              <em>Energy Economics</em>, 63, 129&ndash;143.
+            </span>
+          </li>
 
-  </ul>
-</section>
-    <section id="grants">
-      <h2>Research Grants</h2>
-      <h3>Competitive Research Grants (FONDECYT)</h3>
-      <ul>
-        <li>
-          FONDECYT Regular Nº 1210915 (2021–2024).<br>
-          <strong>Systemic tail risk: New directions for understanding high dimensional extreme
-          financial risk</strong>. Principal Investigator.
-        </li>
-        <li>
-          FONDECYT Regular Nº 1180672 (2018–2020).<br>
-          <strong>Modeling high dimensional and high frequency extreme events in financial
-          markets: Incorporating trading activity, liquidity measures, and news flow</strong>.
-          Principal Investigator.
-        </li>
-        <li>
-          FONDECYT Regular Nº 1150349 (2015–2017).<br>
-          <strong>Extreme financial risk: A multivariate conditional framework of extreme
-          events</strong>. Principal Investigator.
-        </li>
-        <li>
-          FONDECYT Initiation Nº 11110247 (2011–2013).<br>
-          <strong>Advanced extremal models for risk modeling under Basel II</strong>.
-          Principal Investigator.
-        </li>
-      </ul>
-    </section>
+          <li>
+            2015 &ndash; Herrera, R., Clements, A. and Hurn, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Modeling+Interregional+Links+in+Electricity+Price+Spikes"
+               target="_blank"
+               rel="noopener noreferrer">
+              Modeling interregional links in electricity price spikes
+            </a>.
+            <span class="pub-meta">
+              <em>Energy Economics</em>, 51, 383&ndash;393.
+            </span>
+          </li>
 
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <p>
-        I teach undergraduate and graduate courses in econometrics, financial
-        econometrics, quantitative risk management, quantitative methods in
-        economics, time series analysis, and data science oriented topics.
-      </p>
-      <p>
-        At the postgraduate level my teaching includes Financial Econometrics,
-        Quantitative Methods and Data Science, Advanced Econometrics, Time
-        Series, Quantitative Finance, Quantitative Risk Management, and related
-        courses in statistics and econometrics.
-      </p>
-    </section>
+          <li>
+            2014 &ndash; Herrera, R. and Schipp, B.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Statistics+of+extreme+events+in+risk+management%3A+The+impact+of+the+subprime+and+global+financial+crisis+on+the+German+stock+market"
+               target="_blank"
+               rel="noopener noreferrer">
+              Statistics of extreme events in risk management: The impact of the subprime and global financial crisis on the German stock market
+            </a>.
+            <span class="pub-meta">
+              <em>The North American Journal of Economics and Finance</em>, 29, 218&ndash;238.
+            </span>
+          </li>
 
-    <section id="news">
-      <h2>Latest News</h2>
-      <ul>
-        <li>
-          <strong>July 2025</strong> – The paper
-          <em>When to be discrete: The importance of time formulation in the modeling of
-          extreme events in finance</em> (with K. Bień-Barkowska) is accepted in
-          <em>International Journal of Forecasting</em>.
-        </li>
-        <li>
-          <strong>March 2025</strong> – The paper
-          <em>Tail risk dynamics of banks with score driven extreme value models</em>
-          (with F. Fuentes and A. Clements) is accepted in
-          <em>Journal of Empirical Finance</em>.
-        </li>
-      </ul>
-    </section>
+          <li>
+            2014 &ndash; Herrera, R. and González, N.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Modeling+and+forecasting+of+extreme+events+in+electricity+spot+markets"
+               target="_blank"
+               rel="noopener noreferrer">
+              Modeling and forecasting of extreme events in electricity spot markets
+            </a>.
+            <span class="pub-meta">
+              <em>International Journal of Forecasting</em>, 30(3), 477&ndash;490.
+            </span>
+          </li>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Faculty of Business and Economics<br>
-        University of Talca<br>
-        Avenida Lircay s/n, Talca, Chile
-      </p>
-      <p>
-        Phone: +56 71 2200308<br>
-        Email:
-        <a href="mailto:rodrigo.herrera@utalca.cl">rodrigo.herrera@utalca.cl</a><br>
-        Web: <a href="https://www.r-herrera.com/">www.r-herrera.com</a><br>
-        GitHub: <a href="https://github.com/rodrigo-sudo">github.com/rodrigo-sudo</a>
-      </p>
-    </section>
+          <li>
+            2014 &ndash; Herrera, R. and Karmann, A.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=New+evidence+of+contagion+in+the+Asian+crisis"
+               target="_blank"
+               rel="noopener noreferrer">
+              New evidence of contagion in the Asian crisis
+            </a>.
+            <span class="pub-meta">
+              <em>Review of Development Economics</em>, 18(2), 354&ndash;371.
+            </span>
+          </li>
 
-    <section id="cv">
-      <h2>Curriculum Vitae</h2>
-      <p>
-        A full CV in PDF format is available here:
-        <a href="https://www.r-herrera.com/_files/ugd/085033_11a2b98d48e64bb19809043edd7a1779.pdf">
-          Download CV (PDF)
-        </a>
-      </p>
-    </section>
+          <li>
+            2013 &ndash; Herrera, R.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Energy+risk+management+through+self-exciting+marked+point+process"
+               target="_blank"
+               rel="noopener noreferrer">
+              Energy risk management through self-exciting marked point process
+            </a>.
+            <span class="pub-meta">
+              <em>Energy Economics</em>, 38, 64&ndash;76.
+            </span>
+          </li>
 
-  </main>
+          <li>
+            2013 &ndash; Herrera, R. and Schipp, B.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Value+at+Risk+forecasts+by+extreme+value+models+in+a+conditional+duration+framework"
+               target="_blank"
+               rel="noopener noreferrer">
+              Value at Risk forecasts by extreme value models in a conditional duration framework
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Empirical Finance</em>, 23, 33&ndash;47.
+            </span>
+          </li>
 
-  <footer>
-    &copy; 2025 Rodrigo Herrera · Last updated: August 2025
-  </footer>
+          <li>
+            2011 &ndash; Herrera, R. and Eichler, S.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Extreme+dependence+with+asymmetric+thresholds%3A+Evidence+for+the+European+Monetary+Union"
+               target="_blank"
+               rel="noopener noreferrer">
+              Extreme dependence with asymmetric thresholds: Evidence for the European Monetary Union
+            </a>.
+            <span class="pub-meta">
+              <em>Journal of Banking and Finance</em>, 35(11), 2916&ndash;2930.
+            </span>
+          </li>
+        </ol>
 
+        <h3>Book chapters</h3>
+        <ul class="pub-list">
+          <li>
+            2009 &ndash; Herrera, R. and Schipp, B.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Self-exciting+extreme+value+models+on+stock+market+crashes"
+               target="_blank"
+               rel="noopener noreferrer">
+              Self-exciting extreme value models on stock market crashes
+            </a>.
+            <span class="pub-meta">
+              In: <em>Statistical Inference, Econometric Analysis and Matrix Algebra</em>, Physica-Verlag Heidelberg, 209&ndash;231.
+            </span>
+          </li>
+          <li>
+            2007 &ndash; Herrera, R., Nickel, S. and Kalcsics, J.
+            <a class="pub-title"
+               href="https://scholar.google.com/scholar?q=Reliability+Models+for+the+Uncapacitated+Facility+Location+Problem+with+User+Preferences"
+               target="_blank"
+               rel="noopener noreferrer">
+              Reliability models for the uncapacitated facility location problem with user preferences
+            </a>.
+            <span class="pub-meta">
+              In: <em>Operations Research Proceedings 2007</em>, 135&ndash;140.
+            </span>
+          </li>
+        </ul>
+
+        <h3>Other publications in Spanish</h3>
+        <ul class="pub-list">
+          <li>
+            2007 &ndash; Aguirre, M., Herrera, R. and Bravo, G.
+            <a class="pub-title"
+               href="https://revistas.ucr.ac.cr/index.php/matematica/article/view/39323"
+               target="_blank"
+               rel="noopener noreferrer">
+              Análisis comparativo de eficiencia técnica entre la banca chilena y alemana
+            </a>.
+            <span class="pub-meta">
+              <em>Revista de Matemática: Teoría y Aplicaciones</em>, 14(2), 203&ndash;218.
+            </span>
+          </li>
+          <li>
+            2004 &ndash; Aguirre, M., Herrera, R. and Bravo, G.
+            <a class="pub-title"
+               href="https://www.redalyc.org/pdf/399/39902904.pdf"
+               target="_blank"
+               rel="noopener noreferrer">
+              Una frontera de producción para la banca chilena
+            </a>.
+            <span class="pub-meta">
+              <em>Panorama Socioeconómico</em>, 29.
+            </span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      © Rodrigo Herrera
+    </footer>
+  </div>
 </body>
 </html>
